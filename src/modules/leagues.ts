@@ -1,16 +1,10 @@
-// Get NFL state: https://api.sleeper.app/v1/state/nfl
-// Get league: https://api.sleeper.app/v1/league/714317272176476160
-
 import { baseUrl } from '../config/variables';
+import fetchData from '../config/fetch';
 
-export function getNFLState() {
-  return fetch(`${baseUrl}/state/nfl`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getNFLState() {
+  return await fetchData(`${baseUrl}/state/nfl`);
 }
 
-export function getLeague(leagueId: number) {
-  return fetch(`${baseUrl}/league/${leagueId}`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getLeague(leagueId: string) {
+  return await fetchData(`${baseUrl}/league/${leagueId}`);
 }

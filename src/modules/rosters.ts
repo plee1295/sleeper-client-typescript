@@ -1,13 +1,10 @@
 import { baseUrl } from '../config/variables';
+import fetchData from '../config/fetch';
 
-export function getRosters(leagueId: number) {
-  return fetch(`${baseUrl}/league/${leagueId}/rosters`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getRosters(leagueId: string) {
+  return await fetchData(`${baseUrl}/league/${leagueId}/rosters`);
 }
 
-export function getTransactionsByWeek(leagueId: number, week: number) {
-  return fetch(`${baseUrl}/league/${leagueId}/transactions/${week}`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getTransactionsByWeek(leagueId: string, week: number) {
+  return await fetchData(`${baseUrl}/league/${leagueId}/transactions/${week}`);
 }

@@ -1,19 +1,14 @@
 import { baseUrl } from '../config/variables';
+import fetchData from '../config/fetch';
 
-export function getMatchupsByWeek(leagueId: number, week: number) {
-  return fetch(`${baseUrl}/league/${leagueId}/matchups/${week}`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getMatchupsByWeek(leagueId: string, week: number) {
+  return await fetchData(`${baseUrl}/league/${leagueId}/matchups/${week}`);
 }
 
-export function getWinnersBracket(leagueId: number) {
-  return fetch(`${baseUrl}/league/${leagueId}/winners_bracket`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getWinnersBracket(leagueId: string) {
+  return await fetchData(`${baseUrl}/league/${leagueId}/winners_bracket`);
 }
 
-export function getLosersBracket(leagueId: number) {
-  return fetch(`${baseUrl}/league/${leagueId}/losers_bracket`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getLosersBracket(leagueId: string) {
+  return await fetchData(`${baseUrl}/league/${leagueId}/losers_bracket`);
 }

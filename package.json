@@ -4,6 +4,7 @@
   "description": "NPM package used to easily interact with the Sleeper API",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "type": "commonjs",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
@@ -35,11 +36,15 @@
   "homepage": "https://github.com/fantasy-football-league/sleeper-api-client#readme",
   "devDependencies": {
     "@types/jest": "^28.1.4",
+    "@types/node-fetch": "^2.6.2",
     "jest": "^28.1.2",
     "prettier": "^2.7.1",
     "ts-jest": "^28.0.5",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.6"
   }
 }

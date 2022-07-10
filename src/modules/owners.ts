@@ -1,19 +1,14 @@
 import { baseUrl } from '../config/variables';
+import fetchData from '../config/fetch';
 
-export function getUsers(leagueId: number) {
-  return fetch(`${baseUrl}/league/${leagueId}/users`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getUsers(leagueId: string) {
+  return await fetchData(`${baseUrl}/league/${leagueId}/users`);
 }
 
-export function getFullsizeAvatar(avatarId: string) {
-  return fetch(`https://sleepercdn.com/avatars/${avatarId}`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getFullsizeAvatar(avatarId: string) {
+  return await fetchData(`https://sleepercdn.com/avatars/${avatarId}`);
 }
 
-export function getThumbnailAvatar(avatarId: string) {
-  return fetch(`https://sleepercdn.com/avatars/thumbs/${avatarId}`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getThumbnailAvatar(avatarId: string) {
+  return await fetchData(`https://sleepercdn.com/avatars/thumbs/${avatarId}`);
 }

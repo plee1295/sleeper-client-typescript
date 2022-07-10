@@ -1,13 +1,10 @@
 import { baseUrl } from '../config/variables';
+import fetchData from '../config/fetch';
 
-export function getDrafts(leagueId: number) {
-  return fetch(`${baseUrl}/league/${leagueId}/drafts`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getDrafts(leagueId: string) {
+  return await fetchData(`${baseUrl}/league/${leagueId}/drafts`);
 }
 
-export function getDraftPicks(draftId: number) {
-  return fetch(`${baseUrl}/draft/${draftId}/picks`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getDraftPicks(draftId: string) {
+  return await fetchData(`${baseUrl}/draft/${draftId}/picks`);
 }

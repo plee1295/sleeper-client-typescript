@@ -1,7 +1,6 @@
 import { baseUrl } from '../config/variables';
+import fetchData from '../config/fetch';
 
-export function getPlayers(leagueId: number) {
-  return fetch(`${baseUrl}/players/nfl`)
-    .then((res) => res.json())
-    .then((data) => data);
+export async function getPlayers(leagueId: string) {
+  return await fetchData(`${baseUrl}/players/nfl`);
 }

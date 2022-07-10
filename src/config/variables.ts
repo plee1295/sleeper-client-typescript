@@ -1,1 +1,1 @@
-export const baseUrl: String = 'https://api.sleeper.app/v1';
+export const baseUrl: string = 'https://api.sleeper.app/v1';

@@ -35,6 +35,9 @@ export default function handleError(res: any) {
           'The server is currently unable to handle the request due to a temporary overloading or maintenance of the server. The implication is that this is a temporary condition which will be alleviated after some delay. If known, the length of the delay MAY be indicated in a Retry-After header. If no Retry-After is given, the client SHOULD handle the response as it would for a 500 response.',
       };
     default:
-      return res;
+      return {
+        status: 200,
+        data: res,
+      };
   }
 }

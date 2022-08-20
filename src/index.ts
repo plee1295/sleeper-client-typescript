@@ -61,10 +61,4 @@ class Sleeper {
   }
 }
 
-const sleeper = new Sleeper({ leagueId: '714317272176476160' });
-
-sleeper.getDrafts().then((drafts) => {
-  console.log(drafts);
-});
-
 export default Sleeper;

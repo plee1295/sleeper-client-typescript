@@ -8,16 +8,18 @@ This is an open source project that can be found at <https://github.com/fantasy-
 
 ```javascript
 import { Request, Response } from 'express';
-import sleeper from 'sleeper-api-client';
+import Sleeper from 'sleeper-api-client';
+
+const sleeper = new Sleeper({ leagueId: '<your-league-id-here>' });
 
 // Example using Express and Typescript
 const getDraftById = async (req: Request, res: Response) => {
-  const leagueId = req.params.id;
-
-  const { status, data } = await sleeper.getDrafts(leagueId);
+  const { status, data } = await sleeper.getDrafts();
   return res.status(status).json(data);
 };
 ```
+
+As of version 0.1.1 your `leagueId` can be included in the options object when instantiating a new Sleeper class.
 
 All responses will return an object containing the `status` and `data` returned from the Sleeper API. Example responses below:
 
@@ -40,7 +42,7 @@ All responses will return an object containing the `status` and `data` returned 
 
 ## Methods
 
-### getDrafts (leagueId: string)
+### getDrafts ()
 
 Returns drafts for the league based on league ID.
 
@@ -52,23 +54,23 @@ Returns draft picks based on draft ID.
 
 Returns the current state of the NFL.
 
-### getLeague (leagueId: string)
+### getLeague ()
 
 Returns league based on league ID.
 
-### getMatchupsByWeek (leagueId: string, week: number)
+### getMatchupsByWeek (week: number)
 
 Returns matchups for the given week.
 
-### getWinnersBracket (leagueId: string)
+### getWinnersBracket ()
 
 Returns winner's bracket info for a given league.
 
-### getLosersBracket (leagueId: string)
+### getLosersBracket ()
 
 Returns winner's bracket info for a given league.
 
-### getUsers (leagueId: string)
+### getUsers ()
 
 Returns league owners.
 
@@ -76,10 +78,10 @@ Returns league owners.
 
 Returns a complete list of NFL players.
 
-### getRosters (leagueId: string)
+### getRosters ()
 
 Returns roster's for teams in the league.
 
-### getTransactionsByWeek (leagueId: string, week: number)
+### getTransactionsByWeek (week: number)
 
 Returns list of transactions made in the league by week.

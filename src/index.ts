@@ -6,7 +6,8 @@ import { getPlayers } from './modules/players';
 import { getRosters, getTransactionsByWeek } from './modules/rosters';
 
 interface IOptions {
-  leagueId: string;
+  leagueId?: string;
+  draftId?: string;
 }
 
 class Sleeper {
@@ -16,11 +17,11 @@ class Sleeper {
     this.options = options;
   }
 
-  async getDrafts() {
-    return await getDrafts(this.options.leagueId);
+  async getDrafts(leagueId: string | undefined = this.options.leagueId) {
+    return await getDrafts(leagueId);
   }
 
-  async getDraftPicks(draftId: string) {
+  async getDraftPicks(draftId: string | undefined = this.options.draftId) {
     return await getDraftPicks(draftId);
   }
 
@@ -28,36 +29,36 @@ class Sleeper {
     return await getNFLState();
   }
 
-  async getLeague() {
-    return await getLeague(this.options.leagueId);
+  async getLeague(leagueId: string | undefined = this.options.leagueId) {
+    return await getLeague(leagueId);
   }
 
-  async getMatchupsByWeek(week: number) {
-    return await getMatchupsByWeek(this.options.leagueId, week);
+  async getMatchupsByWeek(leagueId: string | undefined = this.options.leagueId, week: number) {
+    return await getMatchupsByWeek(leagueId, week);
   }
 
-  async getWinnersBracket() {
-    return await getWinnersBracket(this.options.leagueId);
+  async getWinnersBracket(leagueId: string | undefined = this.options.leagueId) {
+    return await getWinnersBracket(leagueId);
   }
 
-  async getLosersBracket() {
-    return await getLosersBracket(this.options.leagueId);
+  async getLosersBracket(leagueId: string | undefined = this.options.leagueId) {
+    return await getLosersBracket(leagueId);
   }
 
-  async getUsers() {
-    return await getUsers(this.options.leagueId);
+  async getUsers(leagueId: string | undefined = this.options.leagueId) {
+    return await getUsers(leagueId);
   }
 
   async getPlayers() {
     return await getPlayers();
   }
 
-  async getRosters() {
-    return await getRosters(this.options.leagueId);
+  async getRosters(leagueId: string | undefined = this.options.leagueId) {
+    return await getRosters(leagueId);
   }
 
-  async getTransactionsByWeek(week: number) {
-    return await getTransactionsByWeek(this.options.leagueId, week);
+  async getTransactionsByWeek(leagueId: string | undefined = this.options.leagueId, week: number) {
+    return await getTransactionsByWeek(leagueId, week);
   }
 }
 

@@ -1,7 +1,7 @@
 import { baseUrl } from '../config/variables';
 import fetchData from '../config/fetch';
 
-export async function getUsers(leagueId: string) {
+export async function getUsers(leagueId: string | undefined) {
   return await fetchData(`${baseUrl}/league/${leagueId}/users`);
 }
 
